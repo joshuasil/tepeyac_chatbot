@@ -9,3 +9,4 @@ psycopg2-binary
 tensorflow
 numpy
 pandas
+gunicorn
