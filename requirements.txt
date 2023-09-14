@@ -10,3 +10,4 @@ tensorflow
 numpy
 pandas
 gunicorn
+python-dotenv
