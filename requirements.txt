@@ -6,3 +6,4 @@ pandas
 plivo
 ibm_watson
 langdetect
+vonage
