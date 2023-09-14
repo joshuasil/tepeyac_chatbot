@@ -1,4 +1,4 @@
-import plivo
+
 from dotenv import load_dotenv
 import os
 import requests
@@ -21,8 +21,8 @@ from fuzzywuzzy import fuzz
 
 logger = logging.getLogger(__name__)
 
-PLIVO_AUTH_ID = os.getenv('PLIVO_AUTH_ID')
-PLIVO_AUTH_TOKEN = os.getenv('PLIVO_AUTH_TOKEN')
+# PLIVO_AUTH_ID = os.getenv('PLIVO_AUTH_ID')
+# PLIVO_AUTH_TOKEN = os.getenv('PLIVO_AUTH_TOKEN')
 
 ## Postgres username, password, and database name
 postgres_str = get_postgres_str()
