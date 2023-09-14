@@ -39,12 +39,12 @@ email_handler.setFormatter(logging.Formatter('Subject: %(levelname)s - App Error
 app.logger.addHandler(email_handler)
 
 # Route to receive SMS
-@app.route('/receive_sms', methods=['POST'])
-def receive_sms():
-    from_number = request.form.get('From')  # Sender's phone number
-    to_number = request.form.get('To')      # Receiver's Plivo number
-    received_text = request.form.get('Text')
-    
+@app.route("/webhooks/inbound-message", methods=["POST"])
+def inbound_message():
+    from_number = request.get_json().get('msisdn')  # Sender's phone number
+    to_number = request.get_json().get('to')      # Receiver's Plivo number
+    received_text = request.get_json().get('text')
+    print(f'from_number: {from_number}, to_number: {to_number}, received_text: {received_text}')
     # Log sender's phone number and received text
     app.logger.info(f'from_number: {from_number}, received_text: {received_text}')
     
@@ -53,6 +53,8 @@ def receive_sms():
         response, numbered_intents, numbered_intents_dict, language = get_response_picklist(int(received_text), from_number)
         write_to_db(from_number, received_text, '', '', language, '', '1', response, numbered_intents_dict)
         print(response,'\n',numbered_intents)
+        message = response + '\n' + numbered_intents
+        send_sms(from_number, message)
         return '', 200
     else:
         # Translate, classify intent, get response, and update database
@@ -60,10 +62,12 @@ def receive_sms():
         intent, confidence = send_to_watson_assistant(text_to_classify)
         response, numbered_intents, numbered_intents_dict = get_response(text_to_classify, intent, confidence, language)
         write_to_db(from_number, received_text, translated_text, text_to_classify, language, intent, confidence, response, numbered_intents_dict)
+        message = response + '\n' + numbered_intents
+        send_sms(from_number, message)
         
     # Log additional information
     app.logger.info(f'from_number: {from_number}, received_text: {received_text}, translated_text: {translated_text}, text_to_classify: {text_to_classify}, language: {language}, intent: {intent}, confidence: {confidence}, response: {response}, numbered_intents: {numbered_intents}')
     return '', 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port = 3000 )

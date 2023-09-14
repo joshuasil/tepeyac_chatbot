@@ -5,19 +5,21 @@ import requests
 from ibm_watson import AssistantV2
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import psycopg2
-
+import vonage
 from ibm_watson import LanguageTranslatorV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-
+import re
 from langdetect import detect
 load_dotenv()
-
+import logging
 from sqlalchemy import create_engine, text
 from get_postgres_str import get_postgres_str
 
 import json
 
 from fuzzywuzzy import fuzz
+
+logger = logging.getLogger(__name__)
 
 PLIVO_AUTH_ID = os.getenv('PLIVO_AUTH_ID')
 PLIVO_AUTH_TOKEN = os.getenv('PLIVO_AUTH_TOKEN')
@@ -27,38 +29,61 @@ postgres_str = get_postgres_str()
 ## Create the Connection
 engine = create_engine(postgres_str, echo=False)
 
+VONAGE_KEY=os.environ.get('VONAGE_KEY', None)
+VONAGE_SECRET=os.environ.get('VONAGE_SECRET', None)
+VONAGE_NUMBER=os.environ.get('VONAGE_NUMBER', None)
 
-def send_sms(from_number, to_number, text):
-    """
-    Send an SMS message using the Plivo API.
+def splitter(message):
+    tb = message.encode('utf-8')
+    if len(tb) < 800:
+        return [message]
+    else:
+        rgx = re.compile(b"[\s\S]*\W")
+        m = rgx.match(tb[:800])
+        return [tb[:len(m[0])].decode('utf-8')] + splitter(tb[len(m[0]):].decode('utf-8'))
 
-    This function sends an SMS message from the specified sender's phone number to
-    the specified receiver's phone number using the Plivo API. The content of the
-    SMS message is provided as the 'text' parameter.
+client = vonage.Client(key=VONAGE_KEY, secret=VONAGE_SECRET)
+sms = vonage.Sms(client)
 
-    Args:
-        from_number (str): The sender's phone number in E.164 format.
-        to_number (str): The receiver's phone number in E.164 format.
-        text (str): The content of the SMS message to be sent.
+def send_sms(from_number, message):
+    for message in splitter(message):
+      responseData = sms.send_message({"from": VONAGE_NUMBER, "to": from_number,"text": message,})
+      if responseData["messages"][0]["status"] == "0":
+        logger.info("Message sent successfully.")
+      else:
+        logger.error(f"Message failed with error: {responseData['messages'][0]['error-text']}")
 
-    Returns:
-        None
+# def send_sms(from_number, to_number, text):
+#     """
+#     Send an SMS message using the Plivo API.
 
-    Example:
-        send_sms('+1234567890', '+9876543210', 'Hello, this is a test message.')
-    """
-    # Initialize the Plivo client with authentication credentials
-    client = plivo.RestClient(auth_id=PLIVO_AUTH_ID, auth_token=PLIVO_AUTH_TOKEN)
+#     This function sends an SMS message from the specified sender's phone number to
+#     the specified receiver's phone number using the Plivo API. The content of the
+#     SMS message is provided as the 'text' parameter.
+
+#     Args:
+#         from_number (str): The sender's phone number in E.164 format.
+#         to_number (str): The receiver's phone number in E.164 format.
+#         text (str): The content of the SMS message to be sent.
+
+#     Returns:
+#         None
+
+#     Example:
+#         send_sms('+1234567890', '+9876543210', 'Hello, this is a test message.')
+#     """
+#     # Initialize the Plivo client with authentication credentials
+#     client = plivo.RestClient(auth_id=PLIVO_AUTH_ID, auth_token=PLIVO_AUTH_TOKEN)
     
-    # Create an SMS message using the Plivo client
-    response = client.messages.create(
-        src=from_number,  # Sender's phone number
-        dst=to_number,    # Receiver's phone number
-        text=text         # Content of the SMS message
-    )
+#     # Create an SMS message using the Plivo client
+#     response = client.messages.create(
+#         src=from_number,  # Sender's phone number
+#         dst=to_number,    # Receiver's phone number
+#         text=text         # Content of the SMS message
+#     )
     
-    # Print the Plivo API response (for informational purposes)
-    print(response)
+#     # Print the Plivo API response (for informational purposes)
+#     print(response)
 
 WATSON_API_KEY = os.getenv('WATSON_API_KEY')
 WATSON_ASSISTANT_ID = os.getenv('WATSON_ASSISTANT_ID')
@@ -210,16 +235,27 @@ def write_to_db(from_number, received_text, translated_text, text_to_classify, l
     # Create a database engine and connect to it
     engine = create_engine(postgres_str, echo=False)
     conn = engine.connect()
+    # Begin a transaction
+    trans = conn.begin()
 
-    # Create a parameterized query using text() and bind the parameters
-    stmt = text(query).bindparams(**params)
+    try:
+        # Create a parameterized query using text() and bind the parameters
+        stmt = text(query).bindparams(**params)
     
-    # Execute the query and commit the transaction
-    conn.execute(stmt)
-    conn.commit()
+        # Execute the query
+        conn.execute(stmt)
     
-    # Close the database connection
-    conn.close()
+        # Commit the transaction
+        trans.commit()
+    
+    except Exception as e:
+        # If an exception occurs, roll back the transaction
+        trans.rollback()
+        raise e
+    
+    finally:
+        # Close the database connection
+        conn.close()
 
 
 def get_last_response(from_number):
