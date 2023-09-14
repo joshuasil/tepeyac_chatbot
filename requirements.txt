@@ -11,3 +11,7 @@ numpy
 pandas
 gunicorn
 python-dotenv
+fuzzywuzzy
+scikit-learn
+nltk
+pickle-mixin
