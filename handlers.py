@@ -163,7 +163,9 @@ def translate(text):
         translated_text, source_language, detected_language = translate('Hola, cómo estás?')
     """
     # Detect the language of the input text
-    language = detect(text)
+    language_detection = language_translator.identify(text).get_result()
+    language = language_detection['languages'][0]['language']
+    print(language)
     translated_text = None
     
     if language != 'en':
