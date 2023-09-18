@@ -121,6 +121,6 @@ def get_response_picklist(num, from_number):
         current_app.logger.error(f"KeyError encountered: {e}")
         
         # Return appropriate error response (modify based on your use case)
-        return "Error: Invalid option selected", [], options, language
+        return "Error: Invalid option selected", '', options, language
 
 
