@@ -11,5 +11,4 @@ psycopg2
 python-dotenv
 pandas
 tensorflow
-keras
 gunicorn
