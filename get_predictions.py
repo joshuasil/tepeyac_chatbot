@@ -4,6 +4,9 @@ import pickle
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 from flask import current_app
+import tensorflow as tf
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 
 df = pd.read_csv('model_training.csv')
