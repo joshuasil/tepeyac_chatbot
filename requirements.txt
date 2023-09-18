@@ -7,7 +7,6 @@ vonage
 ibm_watson
 psycopg2-binary
 tensorflow
-numpy
 pandas
 gunicorn
 python-dotenv
