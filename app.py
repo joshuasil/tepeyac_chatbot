@@ -54,6 +54,7 @@ def inbound_message():
         write_to_db(from_number, received_text, '', '', language, '', '1', response, numbered_intents_dict)
         print(response,'\n',numbered_intents)
         message = response + '\n' + numbered_intents
+        message = remove_hyperlinks(message)
         send_sms(from_number, message)
         return '', 200
     else:
@@ -68,6 +69,7 @@ def inbound_message():
         write_to_db(from_number, received_text, translated_text, text_to_classify, language, intent, confidence, response, numbered_intents_dict)
         app.logger.info(f'Wrote to database!')
         message = response + '\n' + numbered_intents
+        message = remove_hyperlinks(message)
         send_sms(from_number, message)
         
     # Log additional information

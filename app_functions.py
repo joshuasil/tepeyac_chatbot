@@ -59,6 +59,7 @@ def get_response(text, intent, confidence, language):
             # Set the response and related intents for English language
             response = filtered_row['response']
             response_1 = filtered_row['response_1']
+            related_intents = [value for value in filtered_row[['related_intent_1', 'related_intent_2', 'related_intent_3', 'related_intent_4']] if pd.notnull(value)]
             numbered_intents = '\n'.join([f'{i + 1}. {intent}' for i, intent in enumerate(related_intents)])
             numbered_intents = response_1 + '\n\n' + 'Ask me about something else:\n' + numbered_intents
         else:
