@@ -18,3 +18,4 @@ pickle-mixin
 openpyxl
 python-Levenshtein
 tensorrt
+urllib3==1.26.16

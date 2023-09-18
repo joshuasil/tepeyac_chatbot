@@ -44,11 +44,11 @@ def inbound_message():
     from_number = request.get_json().get('msisdn')  # Sender's phone number
     to_number = request.get_json().get('to')      # Receiver's Plivo number
     received_text = request.get_json().get('text')
-    print(f'from_number: {from_number}, to_number: {to_number}, received_text: {received_text}')
     # Log sender's phone number and received text
     app.logger.info(f'from_number: {from_number}, received_text: {received_text}')
     
     if received_text.strip().isdigit():
+        app.logger.info(f'Received text is a number')
         # Get response from picklist and update database
         response, numbered_intents, numbered_intents_dict, language = get_response_picklist(int(received_text), from_number)
         write_to_db(from_number, received_text, '', '', language, '', '1', response, numbered_intents_dict)
@@ -57,11 +57,16 @@ def inbound_message():
         send_sms(from_number, message)
         return '', 200
     else:
+        app.logger.info(f'Received text is a text message.')
         # Translate, classify intent, get response, and update database
         text_to_classify, translated_text, language = translate(received_text)
+        app.logger.info(f'Text translated!')
         intent, confidence = send_to_watson_assistant(text_to_classify)
+        app.logger.info(f'Got response from watson assistant!')
         response, numbered_intents, numbered_intents_dict = get_response(text_to_classify, intent, confidence, language)
+        app.logger.info(f'Got response from get_response!')
         write_to_db(from_number, received_text, translated_text, text_to_classify, language, intent, confidence, response, numbered_intents_dict)
+        app.logger.info(f'Wrote to database!')
         message = response + '\n' + numbered_intents
         send_sms(from_number, message)
         
