@@ -34,7 +34,8 @@ VONAGE_SECRET=os.environ.get('VONAGE_SECRET', None)
 VONAGE_NUMBER=os.environ.get('VONAGE_NUMBER', None)
 
 def splitter(message):
-    tb = message.encode('utf-8')
+    # tb = message.encode('utf-8')
+    tb = message
     if len(tb) < 800:
         return [message]
     else:
