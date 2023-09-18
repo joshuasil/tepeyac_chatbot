@@ -33,6 +33,7 @@ def get_response(text, intent, confidence, language):
     Example:
         response, numbered_intents, numbered_intents_dict = get_response('Tell me about dogs', 'animal_info', 0.92, 'en')
     """
+    current_app.logger.info(f"get_response called for {text} with confidence {confidence}")
     if confidence > 0.85:
         try:
             # Filter the DataFrame to get the row with the specified intent
@@ -69,6 +70,7 @@ def get_response(text, intent, confidence, language):
             numbered_intents = response_1 + '\n\n' + 'Pregúntame sobre otra cosa:\n' + numbered_intents
     else:
         # If confidence is lower, get prediction-based response and empty numbered intents
+        current_app.logger.info(f"confidence too low, using model prediction")
         response, numbered_intents_dict = get_prediction(text, language)
         numbered_intents = ''
         

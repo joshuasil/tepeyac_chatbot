@@ -32,10 +32,13 @@ with open('reverse_mapping.pkl', 'rb') as file:
     loaded_reverse_mapping = pickle.load(file)
 
 def get_prediction(text,language):
+    current_app.logger.info(f"get_prediction called for {text}")
     new_classification = [text]
     seq = loaded_tokenizer.texts_to_sequences(new_classification)
     padded = pad_sequences(seq, maxlen=MAX_SEQUENCE_LENGTH)
+    current_app.logger.info(f"step before prediction")
     pred = loaded_model.predict(padded)[0]
+    current_app.logger.info(f"step after prediction")
     top_topic_indices = np.argsort(pred)[::-1][:4]
     top_intents = [loaded_reverse_mapping[idx] for idx in top_topic_indices]
     if language == 'en':

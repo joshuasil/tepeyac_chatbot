@@ -56,37 +56,7 @@ def send_sms(from_number, message):
         else:
             current_app.logger.error(f"Message failed with error: {responseData['messages'][0]['error-text']}")
 
-# def send_sms(from_number, to_number, text):
-#     """
-#     Send an SMS message using the Plivo API.
 
-#     This function sends an SMS message from the specified sender's phone number to
-#     the specified receiver's phone number using the Plivo API. The content of the
-#     SMS message is provided as the 'text' parameter.
-
-#     Args:
-#         from_number (str): The sender's phone number in E.164 format.
-#         to_number (str): The receiver's phone number in E.164 format.
-#         text (str): The content of the SMS message to be sent.
-
-#     Returns:
-#         None
-
-#     Example:
-#         send_sms('+1234567890', '+9876543210', 'Hello, this is a test message.')
-#     """
-#     # Initialize the Plivo client with authentication credentials
-#     client = plivo.RestClient(auth_id=PLIVO_AUTH_ID, auth_token=PLIVO_AUTH_TOKEN)
-    
-#     # Create an SMS message using the Plivo client
-#     response = client.messages.create(
-#         src=from_number,  # Sender's phone number
-#         dst=to_number,    # Receiver's phone number
-#         text=text         # Content of the SMS message
-#     )
-    
-#     # Print the Plivo API response (for informational purposes)
-#     print(response)
 
 WATSON_API_KEY = os.getenv('WATSON_API_KEY')
 WATSON_ASSISTANT_ID = os.getenv('WATSON_ASSISTANT_ID')
