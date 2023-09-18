@@ -14,12 +14,12 @@ load_dotenv()
 import logging
 from sqlalchemy import create_engine, text
 from get_postgres_str import get_postgres_str
-
+from flask import current_app
 import json
 
 from fuzzywuzzy import fuzz
 
-logger = logging.getLogger(__name__)
+
 
 # PLIVO_AUTH_ID = os.getenv('PLIVO_AUTH_ID')
 # PLIVO_AUTH_TOKEN = os.getenv('PLIVO_AUTH_TOKEN')
@@ -39,19 +39,22 @@ def splitter(message):
         return [message]
     else:
         rgx = re.compile(b"[\s\S]*\W")
-        m = rgx.match(tb[:800])
+        m = rgx.match(tb[:1200])
         return [tb[:len(m[0])].decode('utf-8')] + splitter(tb[len(m[0]):].decode('utf-8'))
 
 client = vonage.Client(key=VONAGE_KEY, secret=VONAGE_SECRET)
 sms = vonage.Sms(client)
 
 def send_sms(from_number, message):
+    print(from_number, message)
+    current_app.logger.info("Received message from app.py to handler before splitter")
     for message in splitter(message):
-      responseData = sms.send_message({"from": VONAGE_NUMBER, "to": from_number,"text": message,})
-      if responseData["messages"][0]["status"] == "0":
-        logger.info("Message sent successfully.")
-      else:
-        logger.error(f"Message failed with error: {responseData['messages'][0]['error-text']}")
+        responseData = sms.send_message({"from": VONAGE_NUMBER, "to": from_number,"text": message,})
+        print(responseData)
+        if responseData["messages"][0]["status"] == "0":
+            current_app.logger.info("Message sent successfully.")
+        else:
+            current_app.logger.error(f"Message failed with error: {responseData['messages'][0]['error-text']}")
 
 # def send_sms(from_number, to_number, text):
 #     """
