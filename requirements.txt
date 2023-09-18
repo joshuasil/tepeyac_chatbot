@@ -16,3 +16,5 @@ scikit-learn
 nltk
 pickle-mixin
 openpyxl
+python-Levenshtein
+tensorrt
