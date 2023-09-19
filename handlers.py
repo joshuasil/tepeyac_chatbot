@@ -34,8 +34,7 @@ VONAGE_SECRET=os.environ.get('VONAGE_SECRET', None)
 VONAGE_NUMBER=os.environ.get('VONAGE_NUMBER', None)
 
 def splitter(message):
-    # tb = message.encode('utf-8')
-    tb = message
+    tb = message.encode('utf-8')
     if len(tb) < 800:
         return [message]
     else:
@@ -50,7 +49,8 @@ def send_sms(from_number, message):
     print(from_number, message)
     current_app.logger.info("Received message from app.py to handler before splitter")
     for message in splitter(message):
-        responseData = sms.send_message({"from": VONAGE_NUMBER, "to": from_number,"text": message,})
+        print(message)
+        responseData = sms.send_message({"from": VONAGE_NUMBER, "to": from_number,"text": message.encode('utf-8'),"type": "unicode",})
         print(responseData)
         if responseData["messages"][0]["status"] == "0":
             current_app.logger.info("Message sent successfully.")
@@ -118,6 +118,8 @@ language_translator = LanguageTranslatorV3(
 # Set the service URL for the language translator
 language_translator.set_service_url(service_url)
 
+from ibm_cloud_sdk_core.api_exception import ApiException
+
 def translate(text):
     """
     Translate text using IBM Language Translator API.
@@ -136,28 +138,35 @@ def translate(text):
     Example:
         translated_text, source_language, detected_language = translate('Hola, cómo estás?')
     """
-    # Detect the language of the input text
-    language_detection = language_translator.identify(text).get_result()
-    language = language_detection['languages'][0]['language']
-    print(language)
-    translated_text = None
-    
-    if language != 'en':
-        # Translate the text from the detected language to English
-        translation = language_translator.translate(
-            text=text,
-            source=language,
-            target='en'
-        ).get_result()
+    try:
+        # Detect the language of the input text
+        language_detection = language_translator.identify(text).get_result()
+        language = language_detection['languages'][0]['language']
+        print(language)
+        translated_text = None
         
-        # Extract the translated text from the API response
-        translated_text = translation['translations'][0]['translation']
-        text_to_classify = translated_text
-    else:
-        # If the language is already English, use the original text
-        text_to_classify = text
-    
-    return text_to_classify, translated_text, language
+        if language != 'en':
+            # Translate the text from the detected language to English
+            translation = language_translator.translate(
+                text=text,
+                source=language,
+                target='en'
+            ).get_result()
+            
+            # Extract the translated text from the API response
+            translated_text = translation['translations'][0]['translation']
+            text_to_classify = translated_text
+        else:
+            # If the language is already English, use the original text
+            text_to_classify = text
+        
+        return text_to_classify, translated_text, language
+    except ApiException as e:
+        # Handle the 404 error here (model not found for specified languages)
+        print(f"Error: {e}")
+        # You can return a default translation or handle the error as needed
+        return text, None, None  # Returning the original text and None for other values
+
 
 
 def write_to_db(from_number, received_text, translated_text, text_to_classify, language, intent, confidence, response, numbered_intents):

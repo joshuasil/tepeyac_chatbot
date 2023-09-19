@@ -1,12 +1,20 @@
-import joblib
-from flask import current_app
+import boto3
 import pickle
+import os
+from flask import current_app
 
-# Load the trained model when the app starts
-sk_model = joblib.load('text_classifier_model.pkl')
+AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID', None)
+AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY', None)
+AWS_COMPREHEND_ENDPOINT=os.environ.get('AWS_COMPREHEND_ENDPOINT', None)
 
-# Load the TF-IDF vectorizer
-vectorizer = joblib.load('tfidf_vectorizer.pkl')
+# Create a Comprehend client
+client = boto3.client('comprehend', region_name='us-east-1')
+
+# Specify the correct endpoint ARN
+endpoint_arn = AWS_COMPREHEND_ENDPOINT
+
+
+# Call the API and store the response
 
 # Load the dictionary from the pickle file
 with open('intent_dict.pkl', 'rb') as file:
@@ -17,22 +25,12 @@ with open('intent_dict_es.pkl', 'rb') as file:
 
 def get_prediction(text,language):
     current_app.logger.info(f"get_prediction called for {text}")
-    input_text_vec = vectorizer.transform([text])
-    # Get class probabilities for the input text
-    current_app.logger.info(f"step before prediction")
-    class_probabilities = sk_model.predict_proba(input_text_vec)
-    current_app.logger.info(f"step after prediction")
-    # Get the top 5 predicted class indices
-    top_4_indices = class_probabilities.argsort()[0][-4:][::-1]
-
-    # Assuming you have a list of class labels (e.g., unique topics)
-    class_labels = sk_model.classes_
+    response = client.classify_document(Text=text, EndpointArn=endpoint_arn)
 
     # Get the top 5 predicted class labels
-    top_intents = [class_labels[i] for i in top_4_indices]
+    top_intents = [i['Name'] for i in response['Classes']]
 
     # Get the corresponding probabilities
-    top_4_probabilities = class_probabilities[0, top_4_indices]
     if language == 'en':
         top_dialogs = [intent_dict[intent] for intent in top_intents]
         numbered_intents_dict = {i+1:intent for i, intent in enumerate(top_intents)}
