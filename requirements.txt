@@ -15,5 +15,5 @@ tensorflow
 gunicorn
 python-Levenshtein
 numpy==1.24.3
-typing-extensions==4.0.1
+typing_extensions==4.4.0
 openpyxl
