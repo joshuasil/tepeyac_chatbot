@@ -13,3 +13,7 @@ pandas
 tensorrt
 tensorflow
 gunicorn
+python-Levenshtein
+numpy==1.24.3
+typing-extensions==4.0.1
+```
