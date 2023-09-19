@@ -17,3 +17,4 @@ python-Levenshtein
 numpy==1.24.3
 typing_extensions==4.4.0
 openpyxl
+nltk
