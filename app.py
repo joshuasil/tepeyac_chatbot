@@ -57,7 +57,7 @@ def inbound_message():
         message = remove_hyperlinks(response)
         send_sms(from_number, message)
         time.sleep(1)
-        send_sms(from_number, numbered_intents)
+        send_sms(from_number, remove_hyperlinks(numbered_intents))
         return '', 200
     else:
         app.logger.info(f'Received text is a text message.')
@@ -73,7 +73,7 @@ def inbound_message():
         message = remove_hyperlinks(response)
         send_sms(from_number, message)
         time.sleep(1)
-        send_sms(from_number, numbered_intents)
+        send_sms(from_number, remove_hyperlinks(numbered_intents))
         
     # Log additional information
     app.logger.info(f'from_number: {from_number}, received_text: {received_text}, translated_text: {translated_text}, text_to_classify: {text_to_classify}, language: {language}, intent: {intent}, confidence: {confidence}, response: {response}, numbered_intents: {numbered_intents}')
