@@ -9,6 +9,7 @@ from logging.config import fileConfig
 from logging.handlers import SMTPHandler, RotatingFileHandler
 from flask_mail import Mail
 import os
+import time
 
 # Load logging configuration from the logging.cfg file
 logging.config.fileConfig('logging.cfg')
@@ -53,9 +54,10 @@ def inbound_message():
         response, numbered_intents, numbered_intents_dict, language = get_response_picklist(int(received_text), from_number)
         write_to_db(from_number, received_text, '', '', language, '', '1', response, numbered_intents_dict)
         print(response,'\n',numbered_intents)
-        message = response + '\n' + numbered_intents
-        message = remove_hyperlinks(message)
+        message = remove_hyperlinks(response)
         send_sms(from_number, message)
+        time.sleep(1)
+        send_sms(from_number, numbered_intents)
         return '', 200
     else:
         app.logger.info(f'Received text is a text message.')
@@ -68,9 +70,10 @@ def inbound_message():
         app.logger.info(f'Got response from get_response!')
         write_to_db(from_number, received_text, translated_text, text_to_classify, language, intent, confidence, response, numbered_intents_dict)
         app.logger.info(f'Wrote to database!')
-        message = response + '\n' + numbered_intents
-        message = remove_hyperlinks(message)
+        message = remove_hyperlinks(response)
         send_sms(from_number, message)
+        time.sleep(1)
+        send_sms(from_number, numbered_intents)
         
     # Log additional information
     app.logger.info(f'from_number: {from_number}, received_text: {received_text}, translated_text: {translated_text}, text_to_classify: {text_to_classify}, language: {language}, intent: {intent}, confidence: {confidence}, response: {response}, numbered_intents: {numbered_intents}')
