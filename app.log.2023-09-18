@@ -1,0 +1,632 @@
+2023-09-18 11:41:05 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+2023-09-18 11:41:05 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-09-18 11:41:05 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 11:41:09 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 11:41:09 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 11:43:04 - app - INFO - from_number: 17204001070, received_text: Screening for blood pressure
+2023-09-18 11:43:04 - app - INFO - Received text is a text message.
+2023-09-18 11:43:05 - app - INFO - Text translated!
+2023-09-18 11:43:06 - app - INFO - Got response from watson assistant!
+2023-09-18 11:43:06 - app - INFO - get_response called for Screening for blood pressure with confidence 0.9897873997688293
+2023-09-18 11:43:06 - app - INFO - Got response from get_response!
+2023-09-18 11:43:08 - app - INFO - Wrote to database!
+2023-09-18 11:43:08 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 11:43:09 - app - INFO - Message sent successfully.
+2023-09-18 11:43:09 - app - INFO - from_number: 17204001070, received_text: Screening for blood pressure, translated_text: None, text_to_classify: Screening for blood pressure, language: en, intent: how_does_screening_for_blood_pressure_help_me, confidence: 0.9897873997688293, response: Did you know that Beyonce and Jay Z as well as Oprah are known for their healthy lifestyle--and their healthy hearts? This includes keeping blood pressure where the top number (called systolic) is 120 or lower and the bottom number (called diastolic) is 80 or lower. You can do it too--be like them!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. am_i_eligible_to_be_screened_for_high_blood_pressure
+2. what_is_involved_in_screening_for_high_blood_pressure
+3. what_is_a_healthy_blood_pressure
+2023-09-18 11:43:09 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 11:43:09] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 11:47:10 - app - INFO - from_number: 17204001070, received_text: What's up
+2023-09-18 11:47:10 - app - INFO - Received text is a text message.
+2023-09-18 11:47:11 - app - INFO - Text translated!
+2023-09-18 11:47:11 - app - INFO - Got response from watson assistant!
+2023-09-18 11:47:11 - app - INFO - get_response called for What's up with confidence 0
+2023-09-18 11:47:11 - app - INFO - confidence too low, using model prediction
+2023-09-18 11:47:11 - app - INFO - get_prediction called for What's up
+2023-09-18 11:47:11 - app - INFO - step before prediction
+2023-09-18 11:47:12 - app - INFO - step after prediction
+2023-09-18 11:47:12 - app - INFO - model prediction used for What's up
+2023-09-18 11:47:12 - app - INFO - Got response from get_response!
+2023-09-18 11:47:16 - app - INFO - Wrote to database!
+2023-09-18 11:47:16 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 11:47:16 - app - INFO - Message sent successfully.
+2023-09-18 11:47:16 - app - INFO - from_number: 17204001070, received_text: What's up, translated_text: None, text_to_classify: What's up, language: en, intent: None, confidence: 0, response: Are you asking about: 
+1. How do I document my food when I'm not motivated?
+2. What is the likelihood of cancer with an inherited gene mutation?
+3. What is a colonoscopy?
+4. What resources do you have for genetic counseling?, numbered_intents: 
+2023-09-18 11:47:16 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 11:47:16] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 11:49:19 - app - INFO - from_number: 17204001070, received_text: 1
+2023-09-18 11:49:19 - app - INFO - Received text is a number
+2023-09-18 11:49:20 - app - INFO - get_response called for  with confidence 1
+2023-09-18 11:49:20 - app - INFO - picklist response found for user 17204001070
+2023-09-18 11:49:22 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 11:49:22 - app - INFO - Message sent successfully.
+2023-09-18 11:49:22 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 11:49:22] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 11:53:09 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/handlers.py', reloading
+2023-09-18 11:53:11 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 11:53:16 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 11:53:16 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 11:53:29 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app.py', reloading
+2023-09-18 11:53:30 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 11:53:35 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 11:53:35 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 11:53:42 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app.py', reloading
+2023-09-18 11:53:42 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app.py', reloading
+2023-09-18 11:53:43 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 11:53:49 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 11:53:49 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 11:54:28 - app - INFO - from_number: 17204001070, received_text: Screening for blood pressure
+2023-09-18 11:54:28 - app - INFO - Received text is a text message.
+2023-09-18 11:54:31 - app - INFO - Text translated!
+2023-09-18 11:54:32 - app - INFO - Got response from watson assistant!
+2023-09-18 11:54:32 - app - INFO - get_response called for Screening for blood pressure with confidence 0.9897873997688293
+2023-09-18 11:54:32 - app - INFO - Got response from get_response!
+2023-09-18 11:54:35 - app - INFO - Wrote to database!
+2023-09-18 11:54:35 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 11:54:36 - app - INFO - Message sent successfully.
+2023-09-18 11:54:36 - app - INFO - from_number: 17204001070, received_text: Screening for blood pressure, translated_text: None, text_to_classify: Screening for blood pressure, language: en, intent: how_does_screening_for_blood_pressure_help_me, confidence: 0.9897873997688293, response: Did you know that Beyonce and Jay Z as well as Oprah are known for their healthy lifestyle--and their healthy hearts? This includes keeping blood pressure where the top number (called systolic) is 120 or lower and the bottom number (called diastolic) is 80 or lower. You can do it too--be like them!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. am_i_eligible_to_be_screened_for_high_blood_pressure
+2. what_is_involved_in_screening_for_high_blood_pressure
+3. what_is_a_healthy_blood_pressure
+2023-09-18 11:54:36 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 11:54:36] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 11:58:05 - app - INFO - from_number: 17204001070, received_text: 1
+2023-09-18 11:58:05 - app - INFO - Received text is a number
+2023-09-18 11:58:07 - app - INFO - get_response called for  with confidence 1
+2023-09-18 11:58:07 - app - INFO - picklist response found for user 17204001070
+2023-09-18 11:58:09 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 11:58:09 - app - INFO - Message sent successfully.
+2023-09-18 11:58:09 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 11:58:09] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:00:15 - app - INFO - from_number: 17204001070, received_text: ¿C?mo puedo prevenir la diabetes?
+2023-09-18 12:00:15 - app - INFO - Received text is a text message.
+2023-09-18 12:00:16 - app - INFO - Text translated!
+2023-09-18 12:00:16 - app - INFO - Got response from watson assistant!
+2023-09-18 12:00:16 - app - INFO - get_response called for Can I prevent diabetes? with confidence 0.964164137840271
+2023-09-18 12:00:16 - app - INFO - Got response from get_response!
+2023-09-18 12:00:19 - app - INFO - Wrote to database!
+2023-09-18 12:00:19 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:00:19 - app - INFO - Message sent successfully.
+2023-09-18 12:00:19 - app - INFO - from_number: 17204001070, received_text: ¿C?mo puedo prevenir la diabetes?, translated_text: Can I prevent diabetes?, text_to_classify: Can I prevent diabetes?, language: es, intent: how_can_i_prevent_diabetes, confidence: 0.964164137840271, response: Hacer pequeños cambios en su estilo de vida puede mejorar su salud y agregar momentos inolvidables con su familia y amigos. Establecer metas para perder el 7% del peso corporal, continuar haciendo ejercicio durante 30 minutos a la semana, comer cantidades adecuadas de frutas y verduras, y beber 8 vasos de agua al día son solo algunos ejemplos para prevenir la diabetes. Consulte con su médico antes de trabajar en estas metas nuevas!, numbered_intents: Haga clic aquí:https://es.tepeyachealth.org/new-patient-registration para encontrar un proveedor.
+
+Pregúntame sobre otra cosa:
+1. ¿Qué implica la detección de diabetes?
+2. ¿Qué es la diabetes tipo 2?
+3. ¿Cómo puedo perder peso?
+2023-09-18 12:00:19 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:00:19] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:00:38 - app - INFO - from_number: 17204001070, received_text: 1
+2023-09-18 12:00:38 - app - INFO - Received text is a number
+2023-09-18 12:00:39 - app - INFO - get_response called for  with confidence 1
+2023-09-18 12:00:39 - app - INFO - picklist response found for user 17204001070
+2023-09-18 12:00:41 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:00:41 - app - INFO - Message sent successfully.
+2023-09-18 12:00:41 - app - ERROR - Message failed with error: Missing Message Text
+2023-09-18 12:00:43 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:00:43] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:00:49 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app_functions.py', reloading
+2023-09-18 12:00:51 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 12:00:56 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 12:00:56 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 12:01:01 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app_functions.py', reloading
+2023-09-18 12:01:01 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app_functions.py', reloading
+2023-09-18 12:01:02 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 12:01:06 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 12:01:06 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 12:01:08 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app_functions.py', reloading
+2023-09-18 12:01:09 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 12:01:14 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 12:01:14 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 12:01:38 - app - INFO - from_number: 17204001070, received_text: Screening for blood pressure
+2023-09-18 12:01:38 - app - INFO - Received text is a text message.
+2023-09-18 12:01:40 - app - INFO - Text translated!
+2023-09-18 12:01:40 - app - INFO - Got response from watson assistant!
+2023-09-18 12:01:40 - app - INFO - get_response called for Screening for blood pressure with confidence 0.9897873997688293
+2023-09-18 12:01:40 - app - INFO - Got response from get_response!
+2023-09-18 12:01:41 - app - INFO - Wrote to database!
+2023-09-18 12:01:41 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:01:42 - app - INFO - Message sent successfully.
+2023-09-18 12:01:42 - app - INFO - from_number: 17204001070, received_text: Screening for blood pressure, translated_text: None, text_to_classify: Screening for blood pressure, language: en, intent: how_does_screening_for_blood_pressure_help_me, confidence: 0.9897873997688293, response: Did you know that Beyonce and Jay Z as well as Oprah are known for their healthy lifestyle--and their healthy hearts? This includes keeping blood pressure where the top number (called systolic) is 120 or lower and the bottom number (called diastolic) is 80 or lower. You can do it too--be like them!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. Am I eligible to be screened for high blood pressure?
+2. What is involved in screening for high blood pressure?
+3. What is a healthy blood pressure?
+2023-09-18 12:01:42 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:01:42] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:02:06 - app - INFO - from_number: 17204001070, received_text: 3
+2023-09-18 12:02:06 - app - INFO - Received text is a number
+2023-09-18 12:02:07 - app - INFO - get_response called for  with confidence 1
+2023-09-18 12:02:07 - app - INFO - picklist response found for user 17204001070
+2023-09-18 12:02:09 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:02:09 - app - INFO - Message sent successfully.
+2023-09-18 12:02:09 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:02:09] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:20:33 - app - INFO - from_number: 17204001070, received_text: 3
+2023-09-18 12:20:33 - app - INFO - Received text is a number
+2023-09-18 12:20:34 - app - INFO - get_response called for  with confidence 1
+2023-09-18 12:20:34 - app - INFO - picklist response found for user 17204001070
+2023-09-18 12:20:36 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:20:37 - app - INFO - Message sent successfully.
+2023-09-18 12:20:37 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:20:37] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:22:25 - app - INFO - from_number: 17204001070, received_text: 2
+2023-09-18 12:22:25 - app - INFO - Received text is a number
+2023-09-18 12:22:27 - app - INFO - get_response called for  with confidence 1
+2023-09-18 12:22:27 - app - INFO - picklist response found for user 17204001070
+2023-09-18 12:22:28 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:22:28 - app - INFO - Message sent successfully.
+2023-09-18 12:22:28 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:22:28] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:26:04 - app - INFO - from_number: 17204001070, received_text: 5
+2023-09-18 12:26:04 - app - INFO - Received text is a number
+2023-09-18 12:26:07 - app - ERROR - KeyError encountered: '5'
+2023-09-18 12:26:10 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:26:10] "[35m[1mPOST /webhooks/inbound-message HTTP/1.1[0m" 500 -
+2023-09-18 12:27:10 - app - INFO - from_number: 17204001070, received_text: 5
+2023-09-18 12:27:10 - app - INFO - Received text is a number
+2023-09-18 12:27:14 - app - ERROR - KeyError encountered: '5'
+2023-09-18 12:27:16 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:27:16] "[35m[1mPOST /webhooks/inbound-message HTTP/1.1[0m" 500 -
+2023-09-18 12:27:16 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/app_functions.py', reloading
+2023-09-18 12:27:18 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 12:27:23 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 12:27:23 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 12:27:49 - app - INFO - from_number: 17204001070, received_text: 5
+2023-09-18 12:27:49 - app - INFO - Received text is a number
+2023-09-18 12:27:52 - app - ERROR - KeyError encountered: '5'
+2023-09-18 12:27:55 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:27:55 - app - INFO - Message sent successfully.
+2023-09-18 12:27:55 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:27:55] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:28:17 - app - INFO - from_number: 17204001070, received_text: 4
+2023-09-18 12:28:17 - app - INFO - Received text is a number
+2023-09-18 12:28:17 - app - INFO - from_number: 17204001070, received_text: 5
+2023-09-18 12:28:17 - app - INFO - Received text is a number
+2023-09-18 12:28:19 - app - INFO - get_response called for  with confidence 1
+2023-09-18 12:28:19 - app - INFO - picklist response found for user 17204001070
+2023-09-18 12:28:20 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:28:21 - app - INFO - Message sent successfully.
+2023-09-18 12:28:21 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:28:21] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:28:20 - app - ERROR - KeyError encountered: '5'
+2023-09-18 12:28:23 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:28:23 - app - INFO - Message sent successfully.
+2023-09-18 12:28:23 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:28:23] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:30:24 - app - INFO - from_number: 13038079800, received_text: What is a healthy diet
+2023-09-18 12:30:24 - app - INFO - Received text is a text message.
+2023-09-18 12:30:26 - app - INFO - Text translated!
+2023-09-18 12:30:26 - app - INFO - Got response from watson assistant!
+2023-09-18 12:30:26 - app - INFO - get_response called for What is a healthy diet with confidence 1
+2023-09-18 12:30:26 - app - INFO - Got response from get_response!
+2023-09-18 12:30:28 - app - INFO - Wrote to database!
+2023-09-18 12:30:28 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:30:28 - app - INFO - Message sent successfully.
+2023-09-18 12:30:28 - app - INFO - from_number: 13038079800, received_text: What is a healthy diet, translated_text: None, text_to_classify: What is a healthy diet, language: en, intent: what_is_a_healthy_diet, confidence: 1, response: Think about your grandparents. Chances are good that they ate mostly grains, beans, fruits, and vegetables. They didn't eat a lot of meat and cheese. For snacks, they ate fruit, or maybe nuts and seeds, like roasted pumpkin seeds. It is tempting to eat fast food and processed food in the US because it is often cheap and always around. But focus on eating whole foods with mostly fruits and vegetables and you will be giving yourself and your family a gift of health., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are whole foods?
+2. What is the healthy dish method?
+3. How can I maintain a healthy weight?
+2023-09-18 12:30:28 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:30:28] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:30:37 - app - INFO - from_number: 13038079800, received_text: 3
+2023-09-18 12:30:37 - app - INFO - Received text is a number
+2023-09-18 12:30:38 - app - INFO - get_response called for  with confidence 1
+2023-09-18 12:30:38 - app - INFO - picklist response found for user 13038079800
+2023-09-18 12:30:39 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:30:40 - app - INFO - Message sent successfully.
+2023-09-18 12:30:40 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:30:40] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:31:10 - app - INFO - from_number: 13038079800, received_text: What are Whole Foods
+2023-09-18 12:31:10 - app - INFO - Received text is a text message.
+2023-09-18 12:31:10 - app - INFO - Text translated!
+2023-09-18 12:31:10 - app - INFO - Got response from watson assistant!
+2023-09-18 12:31:10 - app - INFO - get_response called for What are Whole Foods with confidence 1
+2023-09-18 12:31:10 - app - INFO - Got response from get_response!
+2023-09-18 12:31:11 - app - INFO - Wrote to database!
+2023-09-18 12:31:11 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:31:12 - app - INFO - Message sent successfully.
+2023-09-18 12:31:12 - app - INFO - from_number: 13038079800, received_text: What are Whole Foods, translated_text: None, text_to_classify: What are Whole Foods, language: en, intent: what_are_whole_foods, confidence: 1, response: People who are eating more "whole foods" focus mainly on fruits and vegetables, whole grains (like brown rice and oatmeal), nuts, beans, fish, and eggs. These are foods that you can look at and recognize as food. So if you come across a piece of candy that is a neon green color, that doesn't count!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How can I make healthy food taste good?
+2. How does stress impact my health decisions?
+3. Why should I take the medications I'm prescribed?
+2023-09-18 12:31:12 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:31:12] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:31:38 - app - INFO - from_number: 13038079800, received_text: How does stress impact my health
+2023-09-18 12:31:38 - app - INFO - Received text is a text message.
+2023-09-18 12:31:39 - app - INFO - Text translated!
+2023-09-18 12:31:39 - app - INFO - Got response from watson assistant!
+2023-09-18 12:31:39 - app - INFO - get_response called for How does stress impact my health with confidence 0.7300584316253662
+2023-09-18 12:31:39 - app - INFO - confidence too low, using model prediction
+2023-09-18 12:31:39 - app - INFO - get_prediction called for How does stress impact my health
+2023-09-18 12:31:39 - app - INFO - step before prediction
+2023-09-18 12:31:39 - app - INFO - step after prediction
+2023-09-18 12:31:39 - app - INFO - model prediction used for How does stress impact my health
+2023-09-18 12:31:39 - app - INFO - Got response from get_response!
+2023-09-18 12:31:41 - app - INFO - Wrote to database!
+2023-09-18 12:31:41 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:31:41 - app - INFO - Message sent successfully.
+2023-09-18 12:31:41 - app - INFO - from_number: 13038079800, received_text: How does stress impact my health, translated_text: None, text_to_classify: How does stress impact my health, language: en, intent: how_does_stress_affect_my_health, confidence: 0.7300584316253662, response: Are you asking about: 
+1. How does stress affect my health?
+2. How does stress impact my health decisions?
+3. How can I reduce stress?
+4. How can I cope with stressful situations?, numbered_intents: 
+2023-09-18 12:31:41 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:31:41] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:32:00 - app - INFO - from_number: 13038079800, received_text: How can I reduce stress
+2023-09-18 12:32:00 - app - INFO - Received text is a text message.
+2023-09-18 12:32:00 - app - INFO - Text translated!
+2023-09-18 12:32:00 - app - INFO - Got response from watson assistant!
+2023-09-18 12:32:00 - app - INFO - get_response called for How can I reduce stress with confidence 1
+2023-09-18 12:32:00 - app - INFO - Got response from get_response!
+2023-09-18 12:32:02 - app - INFO - Wrote to database!
+2023-09-18 12:32:02 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:32:02 - app - INFO - Message sent successfully.
+2023-09-18 12:32:02 - app - INFO - from_number: 13038079800, received_text: How can I reduce stress, translated_text: None, text_to_classify: How can I reduce stress, language: en, intent: how_can_i_reduce_stress, confidence: 1, response: Here's some things you can do today to start reducing your stress--stream a funny movie or stand up show--laughter helps! Get moving--a brisk walk or harder workout does wonders to relieve stress. Meditation and yoga are gentle ways that are also proven to work., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How can I cope with stressful situations?
+2. How can I get support from friends and family?
+3. How do I make recipes healthier?
+2023-09-18 12:32:02 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:32:02] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:33:36 - app - INFO - from_number: 13038079800, received_text: What is cholesterol
+2023-09-18 12:33:36 - app - INFO - Received text is a text message.
+2023-09-18 12:33:37 - app - INFO - Text translated!
+2023-09-18 12:33:37 - app - INFO - Got response from watson assistant!
+2023-09-18 12:33:37 - app - INFO - get_response called for What is cholesterol with confidence 1
+2023-09-18 12:33:37 - app - INFO - Got response from get_response!
+2023-09-18 12:33:38 - app - INFO - Wrote to database!
+2023-09-18 12:33:38 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:33:39 - app - INFO - Message sent successfully.
+2023-09-18 12:33:39 - app - INFO - from_number: 13038079800, received_text: What is cholesterol, translated_text: None, text_to_classify: What is cholesterol, language: en, intent: what_is_cholesterol, confidence: 1, response: Did you know that Cholesterol (also called lipids) is a fat-like substance made by your liver--and it is found in your blood and all your cells. You need 2 kinds of Cholesterol for your health--HDL and LDL--these help to build cells, hormones, and vitamins., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How do I manage my cholesterol?
+2. What are healthy fats?
+2023-09-18 12:33:39 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:33:39] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:34:01 - app - INFO - from_number: 13038079800, received_text: What are healthy fats
+2023-09-18 12:34:01 - app - INFO - Received text is a text message.
+2023-09-18 12:34:01 - app - INFO - Text translated!
+2023-09-18 12:34:02 - app - INFO - Got response from watson assistant!
+2023-09-18 12:34:02 - app - INFO - get_response called for What are healthy fats with confidence 1
+2023-09-18 12:34:02 - app - INFO - Got response from get_response!
+2023-09-18 12:34:03 - app - INFO - Wrote to database!
+2023-09-18 12:34:03 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:34:03 - app - INFO - Message sent successfully.
+2023-09-18 12:34:03 - app - INFO - from_number: 13038079800, received_text: What are healthy fats, translated_text: None, text_to_classify: What are healthy fats, language: en, intent: what_are_healthy_fats, confidence: 1, response: Here are five foods that have fats that are good for you to include in your diet: Fish; nuts; seeds; olive oil and avocado oil; and avocados. Stay tuned and we'll send out some recipes that use these foods that you can share with your family!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are unhealthy fats?
+2. How do I manage my cholesterol?
+3. How do I learn to cook healthy food?
+4. How do I eat well even when I'm busy?
+2023-09-18 12:34:03 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:34:03] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:34:24 - app - INFO - from_number: 13038079800, received_text: What is healthy sleep
+2023-09-18 12:34:24 - app - INFO - Received text is a text message.
+2023-09-18 12:34:24 - app - INFO - Text translated!
+2023-09-18 12:34:24 - app - INFO - Got response from watson assistant!
+2023-09-18 12:34:24 - app - INFO - get_response called for What is healthy sleep with confidence 0.9710969924926758
+2023-09-18 12:34:24 - app - INFO - Got response from get_response!
+2023-09-18 12:34:26 - app - INFO - Wrote to database!
+2023-09-18 12:34:26 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:34:26 - app - INFO - Message sent successfully.
+2023-09-18 12:34:26 - app - INFO - from_number: 13038079800, received_text: What is healthy sleep, translated_text: None, text_to_classify: What is healthy sleep, language: en, intent: what_does_it_mean_to_have_healthy_sleep, confidence: 0.9710969924926758, response: If you struggle to sleep well, you are not alone. Poor sleep can be a source of stress and impact your health. But what does it mean to have healthy sleep? Experts say this means you usually get between 7-9 hours of sleep each night and sleep through the night OR you wake up only once and can get back to sleep within 20 minutes. When you wake in the morning you should feel refreshed., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How does sleep affect my health?
+2. How can I get healthy sleep?
+2023-09-18 12:34:26 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:34:26] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:35:10 - app - INFO - from_number: 13038079800, received_text: How can I get more active
+2023-09-18 12:35:10 - app - INFO - Received text is a text message.
+2023-09-18 12:35:10 - app - INFO - Text translated!
+2023-09-18 12:35:10 - app - INFO - Got response from watson assistant!
+2023-09-18 12:35:10 - app - INFO - get_response called for How can I get more active with confidence 0.9479132294654846
+2023-09-18 12:35:10 - app - INFO - Got response from get_response!
+2023-09-18 12:35:12 - app - INFO - Wrote to database!
+2023-09-18 12:35:12 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:35:12 - app - INFO - Message sent successfully.
+2023-09-18 12:35:12 - app - INFO - from_number: 13038079800, received_text: How can I get more active, translated_text: None, text_to_classify: How can I get more active, language: en, intent: what_are_ways_to_be_more_active, confidence: 0.9479132294654846, response: Walking is like a magic formula for your health, and it is one of the easiest ways to get started in being and staying active. Just start slow with a few minutes of walking each day and build up over time. Walk around the block or around your house. Park farther from the store, or your church, school, library, or office, so you have further to walk., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are the benefits of being active?
+2. How do I make being active a habit?
+3. How can I remember to be active throughout the day?
+4. What are some more ideas for getting active?
+2023-09-18 12:35:12 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:35:12] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:36:37 - app - INFO - from_number: 13038079800, received_text: How can I get healthy sleep
+2023-09-18 12:36:37 - app - INFO - Received text is a text message.
+2023-09-18 12:36:37 - app - INFO - Text translated!
+2023-09-18 12:36:38 - app - INFO - Got response from watson assistant!
+2023-09-18 12:36:38 - app - INFO - get_response called for How can I get healthy sleep with confidence 1
+2023-09-18 12:36:38 - app - INFO - Got response from get_response!
+2023-09-18 12:36:39 - app - INFO - Wrote to database!
+2023-09-18 12:36:39 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:36:40 - app - INFO - Message sent successfully.
+2023-09-18 12:36:40 - app - INFO - from_number: 13038079800, received_text: How can I get healthy sleep, translated_text: None, text_to_classify: How can I get healthy sleep, language: en, intent: how_can_i_get_healthy_sleep, confidence: 1, response: OK, here are some easy things you can do today to improve your sleep tonight: Get moving! A 10-minute walk can help--if you do it outside all the better! Exposure to the sun can help, too. Having a clutter-free bedroom can help, so make your bed and pick up your stuff! No coffee after 12 pm and finish eating and drinking (including alcohol) three hours before bed. Make a plan to do 1 or 2 of these today!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are more tips for getting healthy sleep?
+2. How do I manage trouble sleeping?
+3. How do I get active even when I'm tired?
+4. How can I reduce stress?
+2023-09-18 12:36:40 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:36:40] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:36:52 - app - INFO - from_number: 13038079800, received_text: I need to quit smoking
+2023-09-18 12:36:52 - app - INFO - Received text is a text message.
+2023-09-18 12:36:52 - app - INFO - Text translated!
+2023-09-18 12:36:53 - app - INFO - Got response from watson assistant!
+2023-09-18 12:36:53 - app - INFO - get_response called for I need to quit smoking with confidence 0.8971343636512756
+2023-09-18 12:36:53 - app - INFO - Got response from get_response!
+2023-09-18 12:36:54 - app - INFO - Wrote to database!
+2023-09-18 12:36:54 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:36:55 - app - INFO - Message sent successfully.
+2023-09-18 12:36:55 - app - INFO - from_number: 13038079800, received_text: I need to quit smoking, translated_text: None, text_to_classify: I need to quit smoking, language: en, intent: how_can_i_quit_smoking, confidence: 0.8971343636512756, response: Quitting smoking is not easy for anyone. But there are strategies to help you quit! You can make a plan to quit. You could try nicotine replacement therapy. Or you could learn about ways to get active to quit., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How can I make a plan to quit nicotine?
+2. How do I use nicotine replacement therapy?
+2023-09-18 12:36:55 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:36:55] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:37:27 - app - INFO - from_number: 13038079800, received_text: How can I get more physical activities?
+2023-09-18 12:37:27 - app - INFO - Received text is a text message.
+2023-09-18 12:37:27 - app - INFO - Text translated!
+2023-09-18 12:37:28 - app - INFO - Got response from watson assistant!
+2023-09-18 12:37:28 - app - INFO - get_response called for How can I get more physical activities? with confidence 0.7892189621925354
+2023-09-18 12:37:28 - app - INFO - confidence too low, using model prediction
+2023-09-18 12:37:28 - app - INFO - get_prediction called for How can I get more physical activities?
+2023-09-18 12:37:28 - app - INFO - step before prediction
+2023-09-18 12:37:28 - app - INFO - step after prediction
+2023-09-18 12:37:28 - app - INFO - model prediction used for How can I get more physical activities?
+2023-09-18 12:37:28 - app - INFO - Got response from get_response!
+2023-09-18 12:37:29 - app - INFO - Wrote to database!
+2023-09-18 12:37:29 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:37:30 - app - INFO - Message sent successfully.
+2023-09-18 12:37:30 - app - INFO - from_number: 13038079800, received_text: How can I get more physical activities?, translated_text: None, text_to_classify: How can I get more physical activities?, language: en, intent: what_are_ways_to_be_more_active, confidence: 0.7892189621925354, response: Are you asking about: 
+1. What are ways to be more active?
+2. What are the benefits of being active?
+3. How do I make time for getting active?
+4. How can I feel safe while getting active?, numbered_intents: 
+2023-09-18 12:37:30 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:37:30] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:38:13 - app - INFO - from_number: 13038079800, received_text: How do I manage trouble sleeping
+2023-09-18 12:38:13 - app - INFO - Received text is a text message.
+2023-09-18 12:38:14 - app - INFO - Text translated!
+2023-09-18 12:38:14 - app - INFO - Got response from watson assistant!
+2023-09-18 12:38:14 - app - INFO - get_response called for How do I manage trouble sleeping with confidence 1
+2023-09-18 12:38:14 - app - INFO - Got response from get_response!
+2023-09-18 12:38:15 - app - INFO - Wrote to database!
+2023-09-18 12:38:15 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:38:16 - app - INFO - Message sent successfully.
+2023-09-18 12:38:16 - app - INFO - from_number: 13038079800, received_text: How do I manage trouble sleeping, translated_text: None, text_to_classify: How do I manage trouble sleeping, language: en, intent: how_do_i_manage_trouble_sleeping, confidence: 1, response: Does this happen to you? You feel anxious because you can't sleep, and then it makes it harder to sleep! It's even worse when you realize that sleep helps to reduce anxiety. But less anxiety + better sleep = better health, so you can try things like meditation, yoga, and journaling about your anxiety--all these will help your sleep improve too!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How can I get healthy sleep?
+2. What are more tips for getting healthy sleep?
+3. Why is alcohol bad for my health?
+4. What are ways to be more active?
+2023-09-18 12:38:16 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:38:16] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:38:41 - app - INFO - from_number: 13038079800, received_text: What are ways to be more active
+2023-09-18 12:38:41 - app - INFO - Received text is a text message.
+2023-09-18 12:38:41 - app - INFO - Text translated!
+2023-09-18 12:38:41 - app - INFO - Got response from watson assistant!
+2023-09-18 12:38:41 - app - INFO - get_response called for What are ways to be more active with confidence 1
+2023-09-18 12:38:41 - app - INFO - Got response from get_response!
+2023-09-18 12:38:43 - app - INFO - Wrote to database!
+2023-09-18 12:38:43 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:38:43 - app - INFO - Message sent successfully.
+2023-09-18 12:38:43 - app - INFO - from_number: 13038079800, received_text: What are ways to be more active, translated_text: None, text_to_classify: What are ways to be more active, language: en, intent: what_are_ways_to_be_more_active, confidence: 1, response: Walking is like a magic formula for your health, and it is one of the easiest ways to get started in being and staying active. Just start slow with a few minutes of walking each day and build up over time. Walk around the block or around your house. Park farther from the store, or your church, school, library, or office, so you have further to walk., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are the benefits of being active?
+2. How do I make being active a habit?
+3. How can I remember to be active throughout the day?
+4. What are some more ideas for getting active?
+2023-09-18 12:38:43 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:38:43] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:39:57 - app - INFO - from_number: 13038079800, received_text: Why is alcohol bad for my health?
+2023-09-18 12:39:57 - app - INFO - Received text is a text message.
+2023-09-18 12:39:57 - app - INFO - Text translated!
+2023-09-18 12:39:57 - app - INFO - Got response from watson assistant!
+2023-09-18 12:39:57 - app - INFO - get_response called for Why is alcohol bad for my health? with confidence 1
+2023-09-18 12:39:57 - app - INFO - Got response from get_response!
+2023-09-18 12:39:59 - app - INFO - Wrote to database!
+2023-09-18 12:39:59 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:39:59 - app - INFO - Message sent successfully.
+2023-09-18 12:39:59 - app - INFO - from_number: 13038079800, received_text: Why is alcohol bad for my health?, translated_text: None, text_to_classify: Why is alcohol bad for my health?, language: en, intent: why_is_alcohol_bad_for_my_health, confidence: 1, response: Too much alcohol can lead to serious health problems, like high blood pressure, heart failure, and stroke. And it's high in sugar and calories, which can cause weight gain. If you're worried about diabetes, high cholesterol, or high blood pressure, it is probably a good idea to limit how much you drink. Actually, that's probably good advice for everyone!, numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How can I track how much I drink?
+2. How can I limit my alcohol use?
+3. What is the DPP program?
+2023-09-18 12:39:59 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:39:59] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:42:08 - app - INFO - from_number: 13038079800, received_text: What is the DPP program
+2023-09-18 12:42:08 - app - INFO - Received text is a text message.
+2023-09-18 12:42:08 - app - INFO - Text translated!
+2023-09-18 12:42:08 - app - INFO - Got response from watson assistant!
+2023-09-18 12:42:08 - app - INFO - get_response called for What is the DPP program with confidence 1
+2023-09-18 12:42:08 - app - INFO - Got response from get_response!
+2023-09-18 12:42:10 - app - INFO - Wrote to database!
+2023-09-18 12:42:10 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:42:10 - app - INFO - Message sent successfully.
+2023-09-18 12:42:10 - app - INFO - from_number: 13038079800, received_text: What is the DPP program, translated_text: None, text_to_classify: What is the DPP program, language: en, intent: what_is_the_dpp_program, confidence: 1, response: There are different versions of the Diabetes Prevention Program, but those approved by experts focus on healthy eating, being active, managing stress, and avoiding smoking. Some programs are in person and happen weekly for 6 months to a year. You can do programs virtually, too. Clinica Tepeyac can help you find the right program for you., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are the goals of the Diabetes Prevention Program (DPP)?
+2. What do I have to do if I'm in the DPP?
+3. What does it mean to change my lifestyle?
+2023-09-18 12:42:10 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:42:10] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 12:42:54 - app - INFO - from_number: 13038079800, received_text: ?
+2023-09-18 12:42:54 - app - INFO - Received text is a text message.
+2023-09-18 12:42:55 - app - INFO - Text translated!
+2023-09-18 12:42:55 - app - INFO - Got response from watson assistant!
+2023-09-18 12:42:55 - app - INFO - get_response called for What about the with confidence 0
+2023-09-18 12:42:55 - app - INFO - confidence too low, using model prediction
+2023-09-18 12:42:55 - app - INFO - get_prediction called for What about the
+2023-09-18 12:42:55 - app - INFO - step before prediction
+2023-09-18 12:42:55 - app - INFO - step after prediction
+2023-09-18 12:42:55 - app - INFO - model prediction used for What about the
+2023-09-18 12:42:55 - app - INFO - Got response from get_response!
+2023-09-18 12:42:56 - app - INFO - Wrote to database!
+2023-09-18 12:42:56 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 12:42:56 - app - INFO - Message sent successfully.
+2023-09-18 12:42:56 - app - INFO - from_number: 13038079800, received_text: ?, translated_text: What about the, text_to_classify: What about the, language: zh, intent: None, confidence: 0, response: ¿Estás preguntando sobre: 
+1. ¿Cómo registro mi comida cuando no estoy motivado?
+2. ¿Cuál es la probabilidad de cáncer con una mutación genética hereditaria?
+3. ¿Qué es una colonoscopia?
+4. ¿Qué recursos tienes para el asesoramiento genético?, numbered_intents: 
+2023-09-18 12:42:56 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 12:42:56] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 14:46:12 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/get_predictions.py', reloading
+2023-09-18 14:46:12 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/get_predictions.py', reloading
+2023-09-18 14:46:13 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 15:04:12 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+2023-09-18 15:04:12 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-09-18 15:04:12 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 15:04:15 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 15:04:15 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 15:04:28 - app - INFO - from_number: 17204001070, received_text: Diabetes screening
+2023-09-18 15:04:28 - app - INFO - Received text is a text message.
+2023-09-18 15:04:29 - app - INFO - Text translated!
+2023-09-18 15:04:30 - app - INFO - Got response from watson assistant!
+2023-09-18 15:04:30 - app - INFO - get_response called for Diabetes screening with confidence 0.9991071224212646
+2023-09-18 15:04:30 - app - INFO - Got response from get_response!
+2023-09-18 15:04:32 - app - INFO - Wrote to database!
+2023-09-18 15:04:32 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:04:32 - app - INFO - Message sent successfully.
+2023-09-18 15:04:32 - app - INFO - from_number: 17204001070, received_text: Diabetes screening, translated_text: None, text_to_classify: Diabetes screening, language: en, intent: why_should_i_get_screened_for_diabetes, confidence: 0.9991071224212646, response: Two out of every five adults may be diagnosed with diabetes. Screening and early intervention can serve a host of benefits to a patient including but limited to healthier eating, being more physically fit, managing stress, and feeling more energetic., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. Am I eligible to be screened for diabetes?
+2. What is involved in screening for diabetes?
+3. How can I prevent diabetes?
+2023-09-18 15:04:32 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:04:32] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:04:47 - app - INFO - from_number: 17204001070, received_text: 2
+2023-09-18 15:04:47 - app - INFO - Received text is a number
+2023-09-18 15:04:49 - app - INFO - get_response called for  with confidence 1
+2023-09-18 15:04:49 - app - INFO - picklist response found for user 17204001070
+2023-09-18 15:04:50 - app - INFO - from_number: 17204001070, received_text: Diabetes screening
+2023-09-18 15:04:50 - app - INFO - Received text is a text message.
+2023-09-18 15:04:50 - app - INFO - Text translated!
+2023-09-18 15:04:50 - app - INFO - Got response from watson assistant!
+2023-09-18 15:04:50 - app - INFO - get_response called for Diabetes screening with confidence 0.9991071224212646
+2023-09-18 15:04:50 - app - INFO - Got response from get_response!
+2023-09-18 15:04:50 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:04:51 - app - INFO - Message sent successfully.
+2023-09-18 15:04:52 - app - INFO - Wrote to database!
+2023-09-18 15:04:52 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:04:53 - app - INFO - Message sent successfully.
+2023-09-18 15:04:53 - app - INFO - from_number: 17204001070, received_text: Diabetes screening, translated_text: None, text_to_classify: Diabetes screening, language: en, intent: why_should_i_get_screened_for_diabetes, confidence: 0.9991071224212646, response: Two out of every five adults may be diagnosed with diabetes. Screening and early intervention can serve a host of benefits to a patient including but limited to healthier eating, being more physically fit, managing stress, and feeling more energetic., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. Am I eligible to be screened for diabetes?
+2. What is involved in screening for diabetes?
+3. How can I prevent diabetes?
+2023-09-18 15:04:53 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:04:53] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:04:51 - app - ERROR - Message failed with error: Missing Message Text
+2023-09-18 15:04:53 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:04:53] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:05:31 - app - INFO - from_number: 17204001070, received_text: 3
+2023-09-18 15:05:31 - app - INFO - Received text is a number
+2023-09-18 15:05:31 - app - INFO - from_number: 13038079800, received_text: 3
+2023-09-18 15:05:31 - app - INFO - Received text is a number
+2023-09-18 15:05:32 - app - INFO - get_response called for  with confidence 1
+2023-09-18 15:05:32 - app - INFO - picklist response found for user 17204001070
+2023-09-18 15:05:32 - app - INFO - get_response called for  with confidence 1
+2023-09-18 15:05:32 - app - INFO - picklist response found for user 13038079800
+2023-09-18 15:05:34 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:05:34 - app - INFO - Message sent successfully.
+2023-09-18 15:05:34 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:05:34] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:05:34 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:05:34 - app - INFO - Message sent successfully.
+2023-09-18 15:05:34 - app - INFO - Message sent successfully.
+2023-09-18 15:05:34 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:05:34] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:07:19 - app - INFO - from_number: 13038079800, received_text: How can I get more active
+2023-09-18 15:07:19 - app - INFO - Received text is a text message.
+2023-09-18 15:07:19 - app - INFO - Text translated!
+2023-09-18 15:07:19 - app - INFO - Got response from watson assistant!
+2023-09-18 15:07:19 - app - INFO - get_response called for How can I get more active with confidence 0.9479132294654846
+2023-09-18 15:07:19 - app - INFO - Got response from get_response!
+2023-09-18 15:07:21 - app - INFO - Wrote to database!
+2023-09-18 15:07:21 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:07:21 - app - INFO - Message sent successfully.
+2023-09-18 15:07:21 - app - INFO - from_number: 13038079800, received_text: How can I get more active, translated_text: None, text_to_classify: How can I get more active, language: en, intent: what_are_ways_to_be_more_active, confidence: 0.9479132294654846, response: Walking is like a magic formula for your health, and it is one of the easiest ways to get started in being and staying active. Just start slow with a few minutes of walking each day and build up over time. Walk around the block or around your house. Park farther from the store, or your church, school, library, or office, so you have further to walk., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are the benefits of being active?
+2. How do I make being active a habit?
+3. How can I remember to be active throughout the day?
+4. What are some more ideas for getting active?
+2023-09-18 15:07:21 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:07:21] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:09:33 - app - INFO - from_number: 13038079800, received_text: How can I get more active
+2023-09-18 15:09:33 - app - INFO - Received text is a text message.
+2023-09-18 15:09:33 - app - INFO - Text translated!
+2023-09-18 15:09:33 - app - INFO - Got response from watson assistant!
+2023-09-18 15:09:33 - app - INFO - get_response called for How can I get more active with confidence 0.9479132294654846
+2023-09-18 15:09:33 - app - INFO - Got response from get_response!
+2023-09-18 15:09:34 - app - INFO - Wrote to database!
+2023-09-18 15:09:34 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:09:35 - app - INFO - Message sent successfully.
+2023-09-18 15:09:35 - app - INFO - from_number: 13038079800, received_text: How can I get more active, translated_text: None, text_to_classify: How can I get more active, language: en, intent: what_are_ways_to_be_more_active, confidence: 0.9479132294654846, response: Walking is like a magic formula for your health, and it is one of the easiest ways to get started in being and staying active. Just start slow with a few minutes of walking each day and build up over time. Walk around the block or around your house. Park farther from the store, or your church, school, library, or office, so you have further to walk., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. What are the benefits of being active?
+2. How do I make being active a habit?
+3. How can I remember to be active throughout the day?
+4. What are some more ideas for getting active?
+2023-09-18 15:09:35 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:09:35] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:10:05 - app - INFO - from_number: 13038079800, received_text: How can I track how much I drink
+2023-09-18 15:10:05 - app - INFO - Received text is a text message.
+2023-09-18 15:10:05 - app - INFO - Text translated!
+2023-09-18 15:10:05 - app - INFO - Got response from watson assistant!
+2023-09-18 15:10:05 - app - INFO - get_response called for How can I track how much I drink with confidence 1
+2023-09-18 15:10:05 - app - INFO - Got response from get_response!
+2023-09-18 15:10:07 - app - INFO - Wrote to database!
+2023-09-18 15:10:07 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:10:07 - app - INFO - Message sent successfully.
+2023-09-18 15:10:07 - app - INFO - from_number: 13038079800, received_text: How can I track how much I drink, translated_text: None, text_to_classify: How can I track how much I drink, language: en, intent: how_can_i_track_how_much_i_drink, confidence: 1, response: As with eating, it can help to track what you drink to see patterns. Write down how much you drink each week and when you drink. There are also apps you can download to help! Tracking can help you see if you drink more with certain people, at certain events, or even with certain feelings, like being depressed or happy. With this info, you can make a plan to limit what you drink., numbered_intents: Click the link: https://www.tepeyachealth.org/new-patient-registration to schedule an appointment.
+
+Ask me about something else:
+1. How can I limit my alcohol use?
+2. Why is alcohol bad for my health?
+3. What are the benefits of following your food?
+4. What are SMART goals?
+2023-09-18 15:10:07 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:10:07] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:11:45 - app - INFO - from_number: 13038079800, received_text: Que es diabetes
+2023-09-18 15:11:45 - app - INFO - Received text is a text message.
+2023-09-18 15:11:45 - app - INFO - Text translated!
+2023-09-18 15:11:46 - app - INFO - Got response from watson assistant!
+2023-09-18 15:11:46 - app - INFO - get_response called for What is diabetes with confidence 0.5255815982818604
+2023-09-18 15:11:46 - app - INFO - confidence too low, using model prediction
+2023-09-18 15:11:46 - app - INFO - get_prediction called for What is diabetes
+2023-09-18 15:11:46 - app - INFO - step before prediction
+2023-09-18 15:11:47 - app - INFO - step after prediction
+2023-09-18 15:11:47 - app - INFO - model prediction used for What is diabetes
+2023-09-18 15:11:47 - app - INFO - Got response from get_response!
+2023-09-18 15:11:48 - app - INFO - Wrote to database!
+2023-09-18 15:11:48 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:11:48 - app - INFO - Message sent successfully.
+2023-09-18 15:11:48 - app - INFO - from_number: 13038079800, received_text: Que es diabetes, translated_text: What is diabetes, text_to_classify: What is diabetes, language: es, intent: how_can_i_prevent_diabetes, confidence: 0.5255815982818604, response: ¿Estás preguntando sobre: 
+1. ¿Cómo puedo prevenir la diabetes?
+2. ¿Cuáles son las formas de estar más activo?
+3. ¿Cómo previene la vacunación las complicaciones de la diabetes?
+4. ¿Por qué debo hacerme una prueba de detección de diabetes?, numbered_intents: 
+2023-09-18 15:11:48 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:11:48] "POST /webhooks/inbound-message HTTP/1.1" 200 -
+2023-09-18 15:17:16 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/handlers.py', reloading
+2023-09-18 15:17:17 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 15:17:22 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 15:17:22 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 15:17:34 - werkzeug - INFO -  * Detected change in '/Users/joshvasilvasstar/Documents/clinicchat/tepeyac_chatbot/handlers.py', reloading
+2023-09-18 15:17:36 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 15:17:39 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 15:17:39 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 15:17:52 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+2023-09-18 15:17:52 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2023-09-18 15:17:52 - werkzeug - INFO -  * Restarting with watchdog (fsevents)
+2023-09-18 15:17:55 - werkzeug - WARNING -  * Debugger is active!
+2023-09-18 15:17:55 - werkzeug - INFO -  * Debugger PIN: 474-157-751
+2023-09-18 15:18:09 - app - INFO - from_number: 17204001070, received_text: C?mo puedo prevenir la diabetes?
+2023-09-18 15:18:09 - app - INFO - Received text is a text message.
+2023-09-18 15:18:11 - app - INFO - Text translated!
+2023-09-18 15:18:11 - app - INFO - Got response from watson assistant!
+2023-09-18 15:18:11 - app - INFO - get_response called for How can I prevent diabetes? with confidence 1
+2023-09-18 15:18:11 - app - INFO - Got response from get_response!
+2023-09-18 15:18:14 - app - INFO - Wrote to database!
+2023-09-18 15:18:14 - app - INFO - Received message from app.py to handler before splitter
+2023-09-18 15:18:15 - app - INFO - Message sent successfully.
+2023-09-18 15:18:15 - app - INFO - from_number: 17204001070, received_text: C?mo puedo prevenir la diabetes?, translated_text: How can I prevent diabetes?, text_to_classify: How can I prevent diabetes?, language: es, intent: how_can_i_prevent_diabetes, confidence: 1, response: Hacer pequeños cambios en su estilo de vida puede mejorar su salud y agregar momentos inolvidables con su familia y amigos. Establecer metas para perder el 7% del peso corporal, continuar haciendo ejercicio durante 30 minutos a la semana, comer cantidades adecuadas de frutas y verduras, y beber 8 vasos de agua al día son solo algunos ejemplos para prevenir la diabetes. Consulte con su médico antes de trabajar en estas metas nuevas!, numbered_intents: Haga clic aquí:https://es.tepeyachealth.org/new-patient-registration para encontrar un proveedor.
+
+Pregúntame sobre otra cosa:
+1. ¿Qué implica la detección de diabetes?
+2. ¿Qué es la diabetes tipo 2?
+3. ¿Cómo puedo perder peso?
+2023-09-18 15:18:15 - werkzeug - INFO - 127.0.0.1 - - [18/Sep/2023 15:18:15] "POST /webhooks/inbound-message HTTP/1.1" 200 -

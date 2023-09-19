@@ -1,15 +1,12 @@
-import pandas as pd
-from tensorflow.keras.models import model_from_json
-import pickle
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-import numpy as np
+import joblib
 from flask import current_app
-import tensorflow as tf
-import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+import pickle
 
+# Load the trained model when the app starts
+sk_model = joblib.load('text_classifier_model.pkl')
 
-df = pd.read_csv('model_training.csv')
+# Load the TF-IDF vectorizer
+vectorizer = joblib.load('tfidf_vectorizer.pkl')
 
 # Load the dictionary from the pickle file
 with open('intent_dict.pkl', 'rb') as file:
@@ -18,32 +15,24 @@ with open('intent_dict.pkl', 'rb') as file:
 with open('intent_dict_es.pkl', 'rb') as file:
     intent_dict_es = pickle.load(file)
 
-# load json and create model
-json_file = open('model.json', 'r')
-loaded_model_json = json_file.read()
-json_file.close()
-loaded_model = model_from_json(loaded_model_json)
-# load weights into new model
-loaded_model.load_weights("model.h5")
-print("Loaded model from disk")
-# Load the tokenizer
-with open('tokenizer.pkl', 'rb') as token_file:
-    loaded_tokenizer = pickle.load(token_file)
-MAX_SEQUENCE_LENGTH = 125
-# Load the reverse mapping dictionary from the pickle file
-with open('reverse_mapping.pkl', 'rb') as file:
-    loaded_reverse_mapping = pickle.load(file)
-
 def get_prediction(text,language):
     current_app.logger.info(f"get_prediction called for {text}")
-    new_classification = [text]
-    seq = loaded_tokenizer.texts_to_sequences(new_classification)
-    padded = pad_sequences(seq, maxlen=MAX_SEQUENCE_LENGTH)
+    input_text_vec = vectorizer.transform([text])
+    # Get class probabilities for the input text
     current_app.logger.info(f"step before prediction")
-    pred = loaded_model.predict(padded)[0]
+    class_probabilities = sk_model.predict_proba(input_text_vec)
     current_app.logger.info(f"step after prediction")
-    top_topic_indices = np.argsort(pred)[::-1][:4]
-    top_intents = [loaded_reverse_mapping[idx] for idx in top_topic_indices]
+    # Get the top 5 predicted class indices
+    top_4_indices = class_probabilities.argsort()[0][-4:][::-1]
+
+    # Assuming you have a list of class labels (e.g., unique topics)
+    class_labels = sk_model.classes_
+
+    # Get the top 5 predicted class labels
+    top_intents = [class_labels[i] for i in top_4_indices]
+
+    # Get the corresponding probabilities
+    top_4_probabilities = class_probabilities[0, top_4_indices]
     if language == 'en':
         top_dialogs = [intent_dict[intent] for intent in top_intents]
         numbered_intents_dict = {i+1:intent for i, intent in enumerate(top_intents)}
