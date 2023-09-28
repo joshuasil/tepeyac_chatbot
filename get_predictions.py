@@ -2,6 +2,8 @@ import boto3
 import pickle
 import os
 from flask import current_app
+import json 
+import requests
 
 AWS_ACCESS_KEY_ID=os.environ.get('AWS_ACCESS_KEY_ID', None)
 AWS_SECRET_ACCESS_KEY=os.environ.get('AWS_SECRET_ACCESS_KEY', None)
@@ -25,10 +27,15 @@ with open('intent_dict_es.pkl', 'rb') as file:
 
 def get_prediction(text,language):
     current_app.logger.info(f"get_prediction called for {text}")
-    response = client.classify_document(Text=text, EndpointArn=endpoint_arn)
+    url = "https://text-classifier-blcz.onrender.com/c4hprediction"
 
-    # Get the top 5 predicted class labels
-    top_intents = [i['Name'] for i in response['Classes']]
+    payload = json.dumps({"text_to_classify": text})
+
+    headers = {"Content-Type": "application/json"}
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+    response = json.loads(response.text)
+    top_intents = response.get('prediction')
 
     # Get the corresponding probabilities
     if language == 'en':
